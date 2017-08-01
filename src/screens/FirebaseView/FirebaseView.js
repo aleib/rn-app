@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ListView, Button } from 'react-native';
 import * as firebase from 'firebase';
 import styles from './styles.js';
-import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -32,7 +32,8 @@ class FirebaseView extends Component {
   }
 
   static navigationOptions = {
-    title: 'Home'
+    drawerLabel: 'Firebase',
+    drawerIcon: () => (<MaterialCommunityIcons name="fire" size={20} />),
   };
 
   componentDidMount() {
@@ -83,6 +84,10 @@ class FirebaseView extends Component {
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+        <Button
+          onPress={() => navigate('DrawerOpen')}
+          title="Open drawer"
+          />
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(item) => <Text>{item.title}</Text>}

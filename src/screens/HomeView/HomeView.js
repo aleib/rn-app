@@ -12,6 +12,11 @@ class HomeView extends Component {
     title: 'Home'
   };
 
+  static navigationOptions = {
+    drawerLabel: 'Home',
+    drawerIcon: ({ tintColor }) => (<Entypo name="home" size={20} />),
+  };
+
   handlePress = () => {
     this.props.navigation.navigate('Home');
   }
@@ -41,6 +46,10 @@ class HomeView extends Component {
           title="Firebase"
         />
         <Entypo name="network" size={32} color="green" />
+        <Button
+          onPress={() => navigate('DrawerOpen')}
+          title="Open drawer"
+          />
       </View>
     );
   }
